@@ -1,5 +1,6 @@
 "use client";
 
+import Card from "@/app/components/Card";
 import { useEffect, useState } from "react";
 
 interface Card {
@@ -71,16 +72,7 @@ export default function Home() {
       <h1 className="text-4xl">카드 카운팅</h1>
       <div className="grid grid-rows-1 grid-flow-col gap-4">
         {cards.map((card, index) => (
-          <div
-            key={index}
-            className={`cursor-pointer w-16 h-24 bg-gray-100 rounded-md flex flex-col justify-center items-center ${
-              card.color === "red" ? "text-red-500" : "text-black-500"
-            }`}
-            onClick={handleClick}
-          >
-            <div className="text-base">{card.type}</div>
-            <div className="text-base">{card.number}</div>
-          </div>
+          <Card index={index} card={card} handleClick={handleClick} />
         ))}
       </div>
     </div>
