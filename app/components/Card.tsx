@@ -1,17 +1,21 @@
-import { CardTypes } from "@/app/types/CardTypes";
+import { CardInterface, CardTypes } from "@/app/types/CardTypes";
 import React from "react";
 
 export default function Card({
   index,
   card,
-  handleClick,
+  handleCardClick,
 }: {
   index: number;
-  card: any;
-  handleClick: any;
+  card: CardInterface;
+  handleCardClick: Function;
 }) {
-  const getCardColor = (cardTypes: CardTypes) => {
-    switch (cardTypes) {
+  const getCardColor = (type: CardTypes, isToggled: boolean) => {
+    if (isToggled) {
+      return "bg-gray-600";
+    }
+
+    switch (type) {
       case "spade":
         return "text-blue-950";
       case "heart":
@@ -28,13 +32,14 @@ export default function Card({
   return (
     <div
       key={index}
-      className={`cursor-pointer w-16 h-24 bg-gray-100 rounded-md flex flex-col justify-center items-center ${getCardColor(
-        card.type
+      className={`cursor-pointer w-16 h-24 bg-gray-50 rounded-md flex flex-col justify-center items-center border-black border ${getCardColor(
+        card.type,
+        card.isToggled
       )}`}
-      onClick={handleClick}
+      onClick={handleCardClick}
     >
-      <div className="text-base">{card.type}</div>
-      <div className="text-base">{card.number}</div>
+      <div className="text-sm">{card.type}</div>
+      <div className="text-sm">{card.number}</div>
     </div>
   );
 }
