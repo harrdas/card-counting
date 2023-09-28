@@ -7,16 +7,6 @@ import {
   CardTypes,
 } from "@/app/types/CardTypes";
 import { useState } from "react";
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "카드 카운팅 (Card Counting)",
-  description:
-    "카드 히스토리를 기록할 수 있는 앱입니다. This is an app that can record card history by card counting.",
-  openGraph: {
-    images: "/opengraph-image.jpg",
-  },
-};
 
 export default function Home() {
   const cardNumbers: CardNumberTypes[] = [
