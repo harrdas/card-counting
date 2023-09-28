@@ -105,18 +105,20 @@ export default function Home() {
     <>
       <div className="p-4 max-w-7xl mx-auto">
         <h1 className="text-4xl text-center">카드 카운팅</h1>
-        <button
-          className="rounded-full bg-blue-300 p-2 cursor-pointer"
-          onClick={handleInitializeClick}
-        >
-          초기화
-        </button>
         <br />
         <br />
         {displayCards(clubCards)}
         {displayCards(spadeCards)}
         {displayCards(heartCards)}
         {displayCards(diamondCards)}
+        <div className="lg:flex lg:justify-end">
+          <button
+            className="rounded-full bg-blue-300 p-2 cursor-pointer fixed bottom-4 right-4 lg:static"
+            onClick={handleInitializeClick}
+          >
+            초기화
+          </button>
+        </div>
       </div>
     </>
   );
