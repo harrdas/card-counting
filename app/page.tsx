@@ -98,49 +98,54 @@ export default function Home() {
         </button>
         <br />
         <br />
-        <div className="flex flex-row flex-wrap gap-4 mb-6">
-          {clubCards.map((card, index) => (
-            <Card
-              key={`${card.type}-${index}`}
-              index={index}
-              card={card}
-              handleCardClick={() => handleCardClick(card)}
-            />
-          ))}
+        <div className="flex justify-center">
+          <div className="flex flex-row flex-wrap gap-4 mb-6">
+            {clubCards.map((card, index) => (
+              <Card
+                key={`${card.type}-${index}`}
+                index={index}
+                card={card}
+                handleCardClick={() => handleCardClick(card)}
+              />
+            ))}
+          </div>
         </div>
-        <div className="flex flex-row flex-wrap gap-4 mb-6">
-          {spadeCards.map((card, index) => (
-            <Card
-              key={`${card.type}-${index}`}
-              index={index}
-              card={card}
-              handleCardClick={() => handleCardClick(card)}
-            />
-          ))}
+        <div className="flex justify-center">
+          <div className="flex flex-row flex-wrap gap-4 mb-6">
+            {spadeCards.map((card, index) => (
+              <Card
+                key={`${card.type}-${index}`}
+                index={index}
+                card={card}
+                handleCardClick={() => handleCardClick(card)}
+              />
+            ))}
+          </div>
         </div>
-        <div className="flex flex-row flex-wrap gap-4 mb-6">
-          {heartCards.map((card, index) => (
-            <Card
-              key={`${card.type}-${index}`}
-              index={index}
-              card={card}
-              handleCardClick={() => handleCardClick(card)}
-            />
-          ))}
+        <div className="flex justify-center">
+          <div className="flex flex-row flex-wrap gap-4 mb-6">
+            {heartCards.map((card, index) => (
+              <Card
+                key={`${card.type}-${index}`}
+                index={index}
+                card={card}
+                handleCardClick={() => handleCardClick(card)}
+              />
+            ))}
+          </div>
         </div>
-        <div className="flex flex-row flex-wrap gap-4 mb-6">
-          {diamondCards.map((card, index) => (
-            <Card
-              key={`${card.type}-${index}`}
-              index={index}
-              card={card}
-              handleCardClick={() => handleCardClick(card)}
-            />
-          ))}
+        <div className="flex justify-center">
+          <div className="flex flex-row flex-wrap gap-4 mb-6">
+            {diamondCards.map((card, index) => (
+              <Card
+                key={`${card.type}-${index}`}
+                index={index}
+                card={card}
+                handleCardClick={() => handleCardClick(card)}
+              />
+            ))}
+          </div>
         </div>
-      </div>
-      <div className="p-4 max-w-7xl mx-auto mt-20">
-        문의 : junha04@naver.com
       </div>
     </>
   );
