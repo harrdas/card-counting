@@ -12,6 +12,21 @@ export const metadata: Metadata = {
   openGraph: {
     images: "/opengraph-image.jpg",
   },
+  keywords: [
+    "카드",
+    "카운팅",
+    "카드 카운팅",
+    "card",
+    "counting",
+    "card counting",
+    "블랙잭",
+    "blackjack",
+    "카지노",
+    "casino",
+    "바카라",
+    "baccara",
+    "baccarat",
+  ],
 };
 
 export default function RootLayout({
