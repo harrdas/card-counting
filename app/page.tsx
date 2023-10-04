@@ -1,6 +1,7 @@
 "use client";
 
 import Card from "@/app/components/Card";
+import Modal from "@/app/components/Modal";
 import {
   CardInterface,
   CardNumberTypes,
@@ -9,6 +10,24 @@ import {
 import { useState } from "react";
 
 export default function Home() {
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const handleOpenModal = () => {
+    setModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
+  };
+
+  const handleConfirm = () => {
+    setClubCards(() => initializeCards("club"));
+    setSpadeCards(() => initializeCards("spade"));
+    setHeartCards(() => initializeCards("heart"));
+    setDiamondCards(() => initializeCards("diamond"));
+    handleCloseModal();
+  };
+
   const cardNumbers: CardNumberTypes[] = [
     "A",
     "2",
@@ -80,10 +99,7 @@ export default function Home() {
   };
 
   const handleInitializeClick = () => {
-    setClubCards(() => initializeCards("club"));
-    setSpadeCards(() => initializeCards("spade"));
-    setHeartCards(() => initializeCards("heart"));
-    setDiamondCards(() => initializeCards("diamond"));
+    handleOpenModal();
   };
 
   const displayCards = (cards: CardInterface[]) => (
@@ -104,7 +120,7 @@ export default function Home() {
   return (
     <>
       <div className="p-4 max-w-7xl mx-auto">
-        <h1 className="text-4xl text-center">카드 카운팅</h1>
+        <h1 className="text-4xl text-center">Card Counting</h1>
         <br />
         <br />
         {displayCards(clubCards)}
@@ -113,12 +129,19 @@ export default function Home() {
         {displayCards(diamondCards)}
         <div className="lg:flex lg:justify-end">
           <button
-            className="rounded-full bg-blue-300 p-2 cursor-pointer fixed bottom-4 right-4 lg:static"
+            className="rounded-full bg-blue-300 p-3 cursor-pointer fixed bottom-4 right-4 lg:static text-sm bg-opacity-80"
             onClick={handleInitializeClick}
           >
-            초기화
+            Reset
+            <br />
+            (초기화)
           </button>
         </div>
+        <Modal
+          isOpen={isModalOpen}
+          onClose={handleCloseModal}
+          onConfirm={handleConfirm}
+        />
       </div>
     </>
   );
