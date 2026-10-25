@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    instrumentationHook: true,
+  output: "export",
+  images: {
+    unoptimized: true,
   },
 }
 
